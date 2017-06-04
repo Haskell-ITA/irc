@@ -1,0 +1,16 @@
+[Unit]
+Description=ii irc logger
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/ii -i /var/irclog -s irc.freenode.net -p 6667 -n volo-fgaz-log
+ExecStartPost=/var/irclog/connect.sh
+User=irclog
+Group=irclog
+TimeoutStartSec=30
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
+

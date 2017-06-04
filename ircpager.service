@@ -1,0 +1,16 @@
+[Unit]
+Description=irc pager
+After=network-online.target
+
+[Service]
+; needed if compiled on a newer system (arch, void...)
+ExecStart=/lib64/ld-linux-x86-64.so.2 /var/irclog/ircpager
+User=irclog
+Group=irclog
+TimeoutStartSec=30
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
+
