@@ -6,13 +6,21 @@ import Web.Pager
 import Web.Pager.Formatters
 import Data.Default.Class
 import Lucid
+import System.Environment (getArgs)
+import System.Exit (exitFailure)
 
-main = run 8001 $ pagerApp "/var/irclog/irc.freenode.net/#haskell-it/out" def
-  { title = "#haskell-it IRC log"
-  , perPage = 200
-  , tableHead = ["Date", "Time", "Username", "Message"]
-  , formatLine = irc
-  , extraMetas = metas }
+main = do
+  _:args <- getArgs
+  case args
+    of [] -> do putStrLn "USAGE: ircpager IRC_LOG_PATH"
+                exitFailure
+       path:_ ->
+         run 8001 $ pagerApp path def
+           { title = "#haskell-it IRC log"
+           , perPage = 200
+           , tableHead = ["Date", "Time", "Username", "Message"]
+           , formatLine = irc
+           , extraMetas = metas }
 
 metas :: Html ()
 metas = do

@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 ; needed if compiled on a newer system (arch, void...)
-ExecStart=/lib64/ld-linux-x86-64.so.2 /var/irclog/ircpager
+ExecStart=/lib64/ld-linux-x86-64.so.2 /var/irclog/ircpager /var/irclog/irc.freenode.net/#haskell-it/out
 User=irclog
 Group=irclog
 TimeoutStartSec=30
