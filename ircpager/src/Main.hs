@@ -10,7 +10,7 @@ import System.Environment (getArgs)
 import System.Exit (exitFailure)
 
 main = do
-  _:args <- getArgs
+  args <- getArgs
   case args
     of [] -> do putStrLn "USAGE: ircpager IRC_LOG_PATH"
                 exitFailure
