@@ -19,7 +19,7 @@ main = do
            { title = "#haskell-it IRC log"
            , perPage = 200
            , tableHead = ["Date", "Time", "Username", "Message"]
-           , formatLine = irc
+           , formatLine = ircUnixTime
            , extraMetas = metas }
 
 metas :: Html ()
